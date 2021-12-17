@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Dynamic;
 using System.Runtime.CompilerServices;
 
 // ReSharper disable UnusedType.Global
@@ -21,9 +20,9 @@ namespace ApacheTech.Common.Extensions.System
         /// </summary>
         /// <param name="obj">The object the properties are associated with.</param>
         /// <returns>A dynamic collection of properties associated with an object instance.</returns>
-        public static dynamic DynamicProperties(this object obj)
+        public static object DynamicProperties(this object obj)
         {
-            return ExtendedData.GetValue(obj, _ => new ExpandoObject());
+            return ExtendedData.GetValue(obj, _ => new object());
         }
 
         /// <summary>

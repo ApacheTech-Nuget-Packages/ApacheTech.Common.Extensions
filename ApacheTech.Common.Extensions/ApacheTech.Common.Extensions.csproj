@@ -35,8 +35,8 @@
 		<RepositoryUrl>https://github.com/ApacheTechSolutions/ApacheTech.Common.Extensions</RepositoryUrl>
 		<RootNamespace>ApacheTech.Common.Extensions</RootNamespace>
 
-		<TargetFrameworks>netstandard2.0;net5.0;net6.0</TargetFrameworks>
-		<Title>Fluent Chat Commands</Title>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<Title>Common .NET System Extension Methods</Title>
 
 		<Version>1.1.0.0</Version>
 	</PropertyGroup>
