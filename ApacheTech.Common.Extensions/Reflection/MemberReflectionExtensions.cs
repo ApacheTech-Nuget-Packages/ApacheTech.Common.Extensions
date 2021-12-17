@@ -11,6 +11,12 @@ namespace ApacheTech.Common.Extensions.Reflection
     {
         #region Members
 
+        /// <summary>
+        ///     Determines whether the specified member is decorated with the given custom attribute.
+        /// </summary>
+        /// <typeparam name="T">The type of custom Attribute to check for.</typeparam>
+        /// <param name="member">The member to check.</param>
+        /// <returns><c>true</c> if the specified member is decorated with the given custom attribute; otherwise, <c>false</c>.</returns>
         public static bool HasCustomAttribute<T>(this MemberInfo member) where T : Attribute
         {
             return member.GetCustomAttributes().OfType<T>().Any();

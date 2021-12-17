@@ -56,7 +56,7 @@ namespace ApacheTech.Common.Extensions.System
         }
 
         /// <summary>
-        ///     Adds an item to the <see cref="ICollection{TItem}" />, if it not already present in the collection.
+        ///     Adds an item to the <see cref="ConcurrentBag{TItem}" />, if it not already present in the collection.
         /// </summary>
         /// <typeparam name="TItem">The type of the elements of <paramref name="item" />.</typeparam>
         /// <param name="collection">The collection to add the item to.</param>

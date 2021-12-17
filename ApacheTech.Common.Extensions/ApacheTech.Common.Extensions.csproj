@@ -3,8 +3,8 @@
 	<PropertyGroup>
 		<ApplicationIcon>__Icon.ico</ApplicationIcon>
 		<AssemblyName>ApacheTech.Common.Extensions</AssemblyName>
-		<AssemblyVersion>1.0.0.0</AssemblyVersion>
-		<AssemblyFileVersion>1.0.0.0</AssemblyFileVersion>
+		<AssemblyVersion>$(Version)</AssemblyVersion>
+		<AssemblyFileVersion>$(Version)</AssemblyFileVersion>
 		<Authors>ApacheTech Solutions</Authors>
 
 		<Company>ApacheTech Solutions</Company>
@@ -35,10 +35,10 @@
 		<RepositoryUrl>https://github.com/ApacheTechSolutions/ApacheTech.Common.Extensions</RepositoryUrl>
 		<RootNamespace>ApacheTech.Common.Extensions</RootNamespace>
 
-		<TargetFramework>netstandard2.0</TargetFramework>
+		<TargetFrameworks>netstandard2.0;net5.0;net6.0</TargetFrameworks>
 		<Title>Fluent Chat Commands</Title>
 
-		<Version>1.0.0.0</Version>
+		<Version>1.1.0.0</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -57,7 +57,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0">
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>

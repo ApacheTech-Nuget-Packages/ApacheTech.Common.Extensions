@@ -11,7 +11,7 @@ namespace ApacheTech.Common.Extensions.System
         #region Enums
 
         /// <summary>
-        ///     Gets the description for the enum member, decorated with a DescriptionAttribute.
+        ///     Gets the description for the enum member, decorated with a <see cref="DescriptionAttribute"/>.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>A string representation of the description of the enum member, decorated with a DescriptionAttribute.</returns>
@@ -23,7 +23,7 @@ namespace ApacheTech.Common.Extensions.System
         }
 
         /// <summary>
-        ///     Gets the description for the enum member, decorated with a DescriptionAttribute.
+        ///     Gets the number of values within this enumeration.
         /// </summary>
         /// <typeparam name="T">The type of enum to evaluate.</typeparam>
         /// <param name="en">The enum to evaluate.</param>

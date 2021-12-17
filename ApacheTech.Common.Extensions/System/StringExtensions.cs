@@ -11,8 +11,7 @@ namespace ApacheTech.Common.Extensions.System
         #region Strings
 
         /// <summary>
-        ///     Returns a default string, if a specified string is <see langword="null" />,
-        ///     empty, or consists only of white-space characters.
+        ///     Returns a default string, if a specified string is <see langword="null" />,empty, or consists only of white-space characters.
         /// </summary>
         /// <param name="str">The string.</param>
         /// <param name="defaultString">The default string.</param>

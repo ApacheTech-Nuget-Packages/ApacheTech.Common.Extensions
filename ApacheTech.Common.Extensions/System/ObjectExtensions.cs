@@ -17,8 +17,7 @@ namespace ApacheTech.Common.Extensions.System
         private static readonly ConditionalWeakTable<object, object> ExtendedData = new();
 
         /// <summary>
-        ///     Gets a dynamic collection of properties associated with an object instance,
-        ///     with a lifetime scoped to the lifetime of the object
+        ///     Gets a dynamic collection of properties associated with an object instance, with a lifetime scoped to the lifetime of the object.
         /// </summary>
         /// <param name="obj">The object the properties are associated with.</param>
         /// <returns>A dynamic collection of properties associated with an object instance.</returns>
@@ -33,7 +32,7 @@ namespace ApacheTech.Common.Extensions.System
         /// <typeparam name="T">The type of object to cast to.</typeparam>
         /// <param name="obj">The instance to cast.</param>
         /// <returns>An instance of Type <typeparamref name="T" />.</returns>
-        public static T As<T>(this object obj)
+        public static T To<T>(this object obj)
         {
             return (Type.GetTypeCode(typeof(T)) is TypeCode.DateTime or TypeCode.DBNull or TypeCode.Empty)
                 ? throw new ArgumentOutOfRangeException(nameof(T),
@@ -42,8 +41,7 @@ namespace ApacheTech.Common.Extensions.System
         }
 
         /// <summary>
-        ///     A close approximation to Visual Basic's "With" keyword, that allows
-        ///     batch setting of Properties, without needing to initialise the object.
+        ///     A close approximation to Visual Basic's "With" keyword, that allows batch setting of Properties, without needing to initialise the object.
         /// </summary>
         /// <typeparam name="T">The type of object to work with.</typeparam>
         /// <param name="item">The item to work with.</param>
