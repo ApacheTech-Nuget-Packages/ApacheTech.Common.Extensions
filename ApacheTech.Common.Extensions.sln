@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31911.196
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32714.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApacheTech.Common.Extensions", "ApacheTech.Common.Extensions\ApacheTech.Common.Extensions.csproj", "{FBBD0FB8-21C1-41F6-AB1F-591C0A0E63D1}"
 EndProject

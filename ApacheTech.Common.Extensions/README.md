@@ -2,6 +2,8 @@
 
 Extension Methods for many different classes within .NET.
 
+This is an inexaustive list of extension methods included within the package.
+
 ## Collections
 
 |Command|Description|
@@ -48,3 +50,17 @@ Extension Methods for many different classes within .NET.
 | `myMember.HasCustomAttribute<T>()` | Determines whether the specified member is decorated with the given custom attribute. |
 | `myProperty.TryGetDefaultValue(out object defaultValue)` | Tries the get default value of a property, via its "PropertyInfo". |
 | `myProperty.TryGetDefaultValue<T>(out T defaultValue)` | Tries the get default value of a property, via its "PropertyInfo". |
+
+## Tasks
+
+|Command|Description|
+|---|---|
+| `myTask.OnCompletedSuccessfully<TResult, TNewResult>()` | Executes an action when a task has been completed successfully. |
+
+## Functional Monadic Extensions
+
+|Command|Description|
+|---|---|
+| `Identity<T>` | Wraps the value in a monad, allowing functional style operations to be executed. |
+| `Maybe<T>` | Wraps the value in a monad, allowing functional style operations to be executed, and degrades gracefully upon failure at any step. |
+| `Either<T>` | Wraps the value in a monad, allowing functional style operations to be executed, degrades gracefully at any step, and tracks any exceptions thrown. |

@@ -8,6 +8,9 @@ using System.Reflection;
 
 namespace ApacheTech.Common.Extensions.Reflection
 {
+    /// <summary>
+    ///     Provides extension methods for assemblies.
+    /// </summary>
     public static class AssemblyReflectionExtensions
     {
         #region Assemblies

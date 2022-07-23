@@ -6,6 +6,9 @@ using System.ComponentModel;
 
 namespace ApacheTech.Common.Extensions.System
 {
+    /// <summary>
+    ///     Provides extension methods for enums.
+    /// </summary>
     public static class EnumExtensions
     {
         #region Enums
@@ -15,7 +18,7 @@ namespace ApacheTech.Common.Extensions.System
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>A string representation of the description of the enum member, decorated with a DescriptionAttribute.</returns>
-        public static string GetDescription(this Enum value)
+        public static string GetDescription(this global::System.Enum value)
         {
             var fi = value.GetType().GetField(value.ToString());
             var attributes = (DescriptionAttribute[])fi.GetCustomAttributes(typeof(DescriptionAttribute), false);
@@ -28,7 +31,7 @@ namespace ApacheTech.Common.Extensions.System
         /// <typeparam name="T">The type of enum to evaluate.</typeparam>
         /// <param name="en">The enum to evaluate.</param>
         /// <returns>The number of entries within this enumeration.</returns>
-        public static int Count<T>(this T en) where T : Enum
+        public static int Count<T>(this T en) where T : global::System.Enum
         {
             return en.GetType().GetEnumNames().Length;
         }

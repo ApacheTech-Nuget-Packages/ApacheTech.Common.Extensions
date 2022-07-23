@@ -7,6 +7,9 @@ using System.Reflection;
 
 namespace ApacheTech.Common.Extensions.Reflection
 {
+    /// <summary>
+    ///     Extension methods for use with class object members.
+    /// </summary>
     public static class MemberReflectionExtensions
     {
         #region Members

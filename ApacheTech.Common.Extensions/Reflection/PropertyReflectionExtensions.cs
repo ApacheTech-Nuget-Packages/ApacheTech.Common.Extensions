@@ -7,6 +7,9 @@ using ApacheTech.Common.Extensions.System;
 
 namespace ApacheTech.Common.Extensions.Reflection
 {
+    /// <summary>
+    ///     Provides extension methods for reflected properties.
+    /// </summary>
     public static class PropertyReflectionExtensions
     {
         #region Properties
