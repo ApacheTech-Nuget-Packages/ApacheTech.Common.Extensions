@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ApacheTech.Common.Extensions.System
 {
     /// <summary>
-    ///     Provides extension methods for tasks.
+    ///     Extension methods to aid working with Tasks.
     /// </summary>
     public static class TaskExtensions
     {

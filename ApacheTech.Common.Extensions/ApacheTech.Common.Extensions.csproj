@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<Version>1.2.0.0</Version>
+		<Version>2.0.0.0</Version>
 
 		<ApplicationIcon>__Icon.ico</ApplicationIcon>
 		<AssemblyName>ApacheTech.Common.Extensions</AssemblyName>
@@ -28,7 +28,14 @@
 		<PackageIcon>__PreviewImage.png</PackageIcon>
 		<PackageLicenseFile>LICENCE.md</PackageLicenseFile>
 		<PackageProjectUrl>https://apachetech.co.uk</PackageProjectUrl>
-		<PackageReleaseNotes>Initial Release</PackageReleaseNotes>
+		<PackageReleaseNotes>
+			ApacheTech.Common.Extensions v2.0.0
+
+			- Removed: Functional Programming Extension Methods (Moved to ApacheTech.Common.FunctionalCSharp)
+			- Refactor: Changed method signatures for some reflection extension methods.
+			- Refactor: Changed method signatures for some system extension methods.
+			- Added: Extension methods for strings, objects, assemblies, types, and numbers.
+		</PackageReleaseNotes>
 		<PackageTags>C#</PackageTags>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>

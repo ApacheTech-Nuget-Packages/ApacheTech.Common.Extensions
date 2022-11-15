@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
 // ReSharper disable UnusedType.Global
 // ReSharper disable UnusedMember.Global

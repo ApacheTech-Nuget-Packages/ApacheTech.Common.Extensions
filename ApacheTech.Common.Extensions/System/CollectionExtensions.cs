@@ -4,8 +4,9 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-// ReSharper disable MemberCanBePrivate.Global
 
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable FieldCanBeMadeReadOnly.Global
 // ReSharper disable UnusedType.Global
 // ReSharper disable UnusedMember.Global
 
@@ -77,6 +78,9 @@ namespace ApacheTech.Common.Extensions.System
 
         #endregion
 
+        [ThreadStatic]
+        internal static Random RandomNumberGenerator = new();
+
         /// <summary>
         ///     Chooses a value, at random, from a list of values.
         /// </summary>
@@ -85,7 +89,7 @@ namespace ApacheTech.Common.Extensions.System
         /// <returns>A value, of type <typeparamref name="T"/>, selected at random from the <paramref name="collection"/>.</returns>
         public static T Random<T>(this IList<T> collection)
         {
-            var index = new Random().Next(0, collection.Count);
+            var index = RandomNumberGenerator.Next(0, collection.Count);
             return collection[index];
         }
 
@@ -225,13 +229,13 @@ namespace ApacheTech.Common.Extensions.System
         }
 
         /// <summary>
-        ///     Determines whether the given dictionary contains any key within a given list of keys.
+        ///     Determines whether the given collection contains any value within a given list of values.
         /// </summary>
         /// <typeparam name="TValue">The type of the value.</typeparam>
         /// <param name="source">The source collection.</param>
-        /// <param name="keys">The list of keys.</param>
+        /// <param name="keys">The list of values.</param>
         /// <returns>
-        ///   <c>true</c> if the specified keys contains any; otherwise, <c>false</c>.
+        ///     <c>true</c> if the specified collection contains any of the range of values; otherwise, <c>false</c>.
         /// </returns>
         public static bool ContainsAny<TValue>(this IEnumerable<TValue> source, IEnumerable<TValue> keys)
             where TValue : class
@@ -247,7 +251,7 @@ namespace ApacheTech.Common.Extensions.System
         /// <param name="source">The source collection.</param>
         /// <param name="keys">The list of keys.</param>
         /// <returns>
-        ///   <c>true</c> if [contains any key] [the specified keys]; otherwise, <c>false</c>.
+        ///     <c>true</c> if the specified dictionary contains any of the range of keys; otherwise, <c>false</c>.
         /// </returns>
         public static bool ContainsAnyKey<TKey, TValue>(this IDictionary<TKey, TValue> source, IEnumerable<TKey> keys)
             where TValue : class

@@ -23,7 +23,7 @@ namespace ApacheTech.Common.Extensions.System
         /// <param name="channel">The channel to change the value of.</param>
         /// <param name="value">The value to set.</param>
         /// <returns>A new instance of <see cref="Color"/>, with the updated values.</returns>
-        public static Color UpdateColourChannel(this Color colour, ColourChannel channel, int value)
+        public static Color UpdateColourChannel(this Color colour, ColourChannel channel, byte value)
         {
             return channel switch
             {
@@ -100,6 +100,35 @@ namespace ApacheTech.Common.Extensions.System
         }
 
         /// <summary>
+        ///     Converts a <see cref="Color"/> to an RGB Hexadecimal string.
+        /// </summary>
+        /// <param name="c">The colour to convert.</param>
+        /// <returns>A hex string, in the format #RRGGBB.</returns>
+        public static string ToRgbHexString(this Color c) => $"#{c.R:X2}{c.G:X2}{c.B:X2}";
+
+        /// <summary>
+        ///     Converts a <see cref="Color"/> to an ARGB Hexadecimal string.
+        /// </summary>
+        /// <param name="c">The colour to convert.</param>
+        /// <returns>A hex string, in the format #AARRGGBB.</returns>
+        public static string ToArgbHexString(this Color c) => $"#{c.A:X2}{c.R:X2}{c.G:X2}{c.B:X2}";
+
+        /// <summary>
+        ///     Converts a <see cref="Color"/> to an RGBA Hexadecimal string.
+        /// </summary>
+        /// <param name="c">The colour to convert.</param>
+        /// <returns>A hex string, in the format #RRGGBBAA.</returns>
+        public static string ToRgbaHexString(this Color c) => $"#{c.R:X2}{c.G:X2}{c.B:X2}{c.A:X2}";
+
+        /// <summary>
+        ///     Converts a <see cref="Color"/> to an RGB() string.
+        /// </summary>
+        /// <param name="c">The colour to convert.</param>
+        /// <returns>A string, in the format RGB(0-255, 0-255, 0-255).</returns>
+        public static string ToRgbString(this Color c) => $"RGB({c.R}, {c.G}, {c.B})";
+
+
+        /// <summary>
         ///     Converts a string representation of a colour, to an ARGB integer value.
         /// </summary>
         /// <param name="colourString">The colour string.</param>
@@ -157,35 +186,6 @@ namespace ApacheTech.Common.Extensions.System
         {
             return colour.ToArgb() | -16777216;
         }
-
-        /// <summary>
-        ///     Converts a <see cref="Color"/> to an RGB Hexadecimal string.
-        /// </summary>
-        /// <param name="c">The colour to convert.</param>
-        /// <returns>A hex string, in the format #RRGGBB.</returns>
-        public static string ToRgbHexString(this Color c) => $"#{c.R:X2}{c.G:X2}{c.B:X2}";
-
-        /// <summary>
-        ///     Converts a <see cref="Color"/> to an ARGB Hexadecimal string.
-        /// </summary>
-        /// <param name="c">The colour to convert.</param>
-        /// <returns>A hex string, in the format #AARRGGBB.</returns>
-        public static string ToArgbHexString(this Color c) => $"#{c.A:X2}{c.R:X2}{c.G:X2}{c.B:X2}";
-
-        /// <summary>
-        ///     Converts a <see cref="Color"/> to an RGBA Hexadecimal string.
-        /// </summary>
-        /// <param name="c">The colour to convert.</param>
-        /// <returns>A hex string, in the format #RRGGBBAA.</returns>
-        public static string ToRgbaHexString(this Color c) => $"#{c.R:X2}{c.G:X2}{c.B:X2}{c.A:X2}";
-
-        /// <summary>
-        ///     Converts a <see cref="Color"/> to an RGB() string.
-        /// </summary>
-        /// <param name="c">The colour to convert.</param>
-        /// <returns>A string, in the format RGB(0-255, 0-255, 0-255).</returns>
-        public static string ToRgbString(this Color c) => $"RGB({c.R}, {c.G}, {c.B})";
-
 
     }
 }

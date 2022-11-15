@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 
 // ReSharper disable UnusedMember.Global
+// ReSharper disable UnusedType.Global
 
 namespace ApacheTech.Common.Extensions.System
 {
@@ -29,7 +30,6 @@ namespace ApacheTech.Common.Extensions.System
 
                 foreach (var fieldInfo in type.GetFields(BindingFlags.Static | BindingFlags.SetField))
                 {
-                    if (fieldInfo.Attributes == FieldAttributes.InitOnly) continue;
                     fieldInfo.SetValue(null, null);
                 }
             }
@@ -41,9 +41,8 @@ namespace ApacheTech.Common.Extensions.System
         /// <param name="assembly">The assembly to scan.</param>
         /// <param name="openGenericType">Type of the open generic.</param>
         /// <returns></returns>
-        public static IEnumerable<Type> GetAllTypesImplementingOpenGenericType(this Assembly assembly, Type openGenericType)
-        {
-            return assembly.GetTypes()
+        public static IEnumerable<Type> GetAllTypesImplementingOpenGenericType(this Assembly assembly, Type openGenericType) =>
+            assembly.GetTypes()
                 .SelectMany(types => types.GetInterfaces(), (types, interfaces) => new { Types = types, Interfaces = interfaces })
                 .Select(t => new { TypeWrapper = t, t.Types.BaseType })
                 .Where(t =>
@@ -52,6 +51,5 @@ namespace ApacheTech.Common.Extensions.System
                     t.TypeWrapper.Interfaces.IsGenericType &&
                     openGenericType.IsAssignableFrom(t.TypeWrapper.Interfaces.GetGenericTypeDefinition()))
                 .Select(t => t.TypeWrapper.Types);
-        }
     }
 }

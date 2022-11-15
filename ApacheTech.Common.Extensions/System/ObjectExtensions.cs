@@ -38,7 +38,7 @@ namespace ApacheTech.Common.Extensions.System
         /// <returns>An instance of Type <typeparamref name="T" />.</returns>
         public static T To<T>(this object obj)
         {
-            return (Type.GetTypeCode(typeof(T)) is TypeCode.DateTime or TypeCode.DBNull or TypeCode.Empty)
+            return Type.GetTypeCode(typeof(T)) is TypeCode.DateTime or TypeCode.DBNull or TypeCode.Empty
                 ? throw new ArgumentOutOfRangeException(nameof(T),
                     "Objects of this TypeCode cannot be cast to, dynamically.")
                 : (T)obj;
@@ -54,19 +54,6 @@ namespace ApacheTech.Common.Extensions.System
         {
             work(item);
             return item;
-        }
-
-        /// <summary>
-        ///     Determines whether the specified object is equal to the default instance of the object.
-        /// </summary>
-        /// <typeparam name="T">The type of object to determine the value of.</typeparam>
-        /// <param name="this">The instance of the object to determine the value of.</param>
-        /// <returns>
-        ///   <c>true</c> if the object is set to the default value; otherwise, <c>false</c>.
-        /// </returns>
-        public static bool IsDefaultValue<T>(this T @this)
-        {
-            return EqualityComparer<T>.Default.Equals(@this, default);
         }
 
         #endregion

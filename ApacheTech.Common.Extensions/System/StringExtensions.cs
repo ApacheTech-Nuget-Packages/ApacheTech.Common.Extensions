@@ -13,8 +13,6 @@ namespace ApacheTech.Common.Extensions.System
     /// </summary>
     public static class StringExtensions
     {
-        #region Strings
-
         /// <summary>
         ///     Returns a default string, if a specified string is <see langword="null" />,empty, or consists only of white-space characters.
         /// </summary>
@@ -38,59 +36,11 @@ namespace ApacheTech.Common.Extensions.System
         }
 
         /// <summary>
-        ///     Determines whether the beginning of this string instance matches any of the specified strings.
-        /// </summary>
-        /// <param name="str">The original string.</param>
-        /// <param name="values">The list of strings to compare.</param>
-        /// <returns>true if <paramref name="values">value</paramref> matches the beginning of this string; otherwise, false.</returns>
-        /// <exception cref="T:System.ArgumentNullException"><paramref name="values">value</paramref> is null.</exception>
-        public static bool StartsWithAny(this string str, IEnumerable<string> values)
-        {
-            return values.Any(str.StartsWith);
-        }
-
-        /// <summary>
-        ///     Determines whether the beginning of this string instance matches any of the specified strings.
-        /// </summary>
-        /// <param name="str">The original string.</param>
-        /// <param name="values">The list of strings to compare.</param>
-        /// <returns>true if <paramref name="values">value</paramref> matches the beginning of this string; otherwise, false.</returns>
-        /// <exception cref="T:System.ArgumentNullException"><paramref name="values">value</paramref> is null.</exception>
-        public static bool StartsWithAny(this string str, params string[] values)
-        {
-            return values.Any(str.StartsWith);
-        }
-
-        /// <summary>
-        ///     Determines whether the string instance contains any of the specified strings.
-        /// </summary>
-        /// <param name="str">The original string.</param>
-        /// <param name="values">The list of strings to compare.</param>
-        /// <returns>true if <paramref name="values">value</paramref> matches the beginning of this string; otherwise, false.</returns>
-        /// <exception cref="T:System.ArgumentNullException"><paramref name="values">value</paramref> is null.</exception>
-        public static bool ContainsAny(this string str, IEnumerable<string> values)
-        {
-            return values.Any(str.Contains);
-        }
-
-        /// <summary>
-        ///     Determines whether the string instance contains any of the specified strings.
-        /// </summary>
-        /// <param name="str">The original string.</param>
-        /// <param name="values">The list of strings to compare.</param>
-        /// <returns>true if <paramref name="values">value</paramref> matches the beginning of this string; otherwise, false.</returns>
-        /// <exception cref="T:System.ArgumentNullException"><paramref name="values">value</paramref> is null.</exception>
-        public static bool ContainsAny(this string str, params string[] values)
-        {
-            return values.Any(str.Contains);
-        }
-
-        /// <summary>
-        ///     Converts a number to its ordinal string representation.
+        ///     Converts a number to its ordinal numeral string representation.
         /// </summary>
         /// <param name="num">The number to convert.</param>
-        /// <returns>A string that represents the number, in ordinal form.</returns>
-        public static string ToOrdinal(this int num)
+        /// <returns>A string that represents the number, in ordinal numeral form.</returns>
+        public static string ToOrdinalNumeral(this int num)
         {
             return (num % 100) switch
             {
@@ -107,8 +57,6 @@ namespace ApacheTech.Common.Extensions.System
             };
         }
 
-        #endregion
-
         /// <summary>
         ///     Determines whether a string contains any letters.
         /// </summary>
@@ -120,7 +68,7 @@ namespace ApacheTech.Common.Extensions.System
         }
 
         /// <summary>
-        ///     Determines whether a string contains any letters.
+        ///     Determines whether a string contains any uppercase, or lowercase letters. Supports Unicode.
         /// </summary>
         /// <param name="input">the input string</param>
         /// <returns><c>true</c> is the string contains letters [Aa..Zz]; otherwise <c>false</c>.</returns>
@@ -130,7 +78,7 @@ namespace ApacheTech.Common.Extensions.System
         }
 
         /// <summary>
-        ///     Determines whether a string contains any numbers.
+        ///     Determines whether a string contains any numbers. Supports Unicode.
         /// </summary>
         /// <param name="input">the input string</param>
         /// <returns><c>true</c> is the string contains numbers [0..9]; otherwise <c>false</c>.</returns>
@@ -140,17 +88,17 @@ namespace ApacheTech.Common.Extensions.System
         }
 
         /// <summary>
-        ///     Determines whether a string contains any numbers.
+        ///     Determines whether a string only contains any numbers. Supports Unicode.
         /// </summary>
         /// <param name="input">the input string</param>
-        /// <returns><c>true</c> is the string contains numbers [0..9]; otherwise <c>false</c>.</returns>
-        public static bool OnlyContainsNumbers(this string input)
+        /// <returns><c>true</c> is the string only contains numbers [0..9]; otherwise <c>false</c>.</returns>
+        public static bool ContainsOnlyNumbers(this string input)
         {
             return input?.All(char.IsNumber) ?? false;
         }
 
         /// <summary>
-        ///    Strips out non-numeric characters in string, returning only digits
+        ///    Strips out non-numeric characters in string, returning only digits. Supports Unicode.
         ///    ref.: https://stackoverflow.com/questions/3977497/stripping-out-non-numeric-characters-in-string
         /// </summary>
         /// <param name="input">the input string</param>
@@ -161,7 +109,7 @@ namespace ApacheTech.Common.Extensions.System
         }
 
         /// <summary>
-        ///     Strips out numeric and special characters in string, returning only letters
+        ///     Strips out numeric and special characters in string, returning only letters. Supports Unicode.
         /// </summary>
         /// <param name="input">the input string</param>
         /// <returns>the letters contained within the input string: for example, if input is "XYZ1234A5U6~()" it will return "XYZAU"</returns>
@@ -171,13 +119,23 @@ namespace ApacheTech.Common.Extensions.System
         }
 
         /// <summary>
-        ///     Strips out any non-numeric/non-digit character in string, returning only letters and numbers
+        ///     Strips out any special characters in string, returning only letters and numbers. Supports Unicode.
         /// </summary>
         /// <param name="input">the input string</param>
         /// <returns>the letters contained within the input string: for example, if input is "XYZ1234A5U6~()" it will return "XYZ1234A5U6"</returns>
-        public static string GetLettersAndNumbers(this string input)
+        public static string GetAlphaNumerics(this string input)
         {
             return new string(input?.Where(char.IsLetterOrDigit).ToArray());
+        }
+
+        /// <summary>
+        ///     Strips out any letters and numbers in string, returning only non-alpha-numeric characters. Supports Unicode.
+        /// </summary>
+        /// <param name="input">the input string</param>
+        /// <returns>the special characters contained within the input string: for example, if input is "XYZ1234A5U6~()" it will return "~()"</returns>
+        public static string GetNonAlphaNumerics(this string input)
+        {
+            return new string(input?.Where(c => !char.IsLetterOrDigit(c)).ToArray());
         }
 
         /// <summary>
