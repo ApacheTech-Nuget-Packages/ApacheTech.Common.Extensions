@@ -4,6 +4,7 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 
 // ReSharper disable MemberCanBePrivate.Global
 // ReSharper disable FieldCanBeMadeReadOnly.Global
@@ -77,9 +78,8 @@ namespace ApacheTech.Common.Extensions.System
         }
 
         #endregion
-
-        [ThreadStatic]
-        internal static Random RandomNumberGenerator = new();
+        
+        internal static ThreadLocal<Random> RandomNumberGenerator => new();
 
         /// <summary>
         ///     Chooses a value, at random, from a list of values.
@@ -89,7 +89,7 @@ namespace ApacheTech.Common.Extensions.System
         /// <returns>A value, of type <typeparamref name="T"/>, selected at random from the <paramref name="collection"/>.</returns>
         public static T Random<T>(this IList<T> collection)
         {
-            var index = RandomNumberGenerator.Next(0, collection.Count);
+            var index = RandomNumberGenerator.Value.Next(0, collection.Count);
             return collection[index];
         }
 

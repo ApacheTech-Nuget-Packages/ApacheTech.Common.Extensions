@@ -56,11 +56,3 @@ This is an inexaustive list of extension methods included within the package.
 |Command|Description|
 |---|---|
 | `myTask.OnCompletedSuccessfully<TResult, TNewResult>()` | Executes an action when a task has been completed successfully. |
-
-## Functional Monadic Extensions
-
-|Command|Description|
-|---|---|
-| `Identity<T>` | Wraps the value in a monad, allowing functional style operations to be executed. |
-| `Maybe<T>` | Wraps the value in a monad, allowing functional style operations to be executed, and degrades gracefully upon failure at any step. |
-| `Either<T>` | Wraps the value in a monad, allowing functional style operations to be executed, degrades gracefully at any step, and tracks any exceptions thrown. |

@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<Version>2.0.0.0</Version>
+		<Version>2.1.0.0</Version>
 
 		<ApplicationIcon>__Icon.ico</ApplicationIcon>
 		<AssemblyName>ApacheTech.Common.Extensions</AssemblyName>
@@ -29,12 +29,10 @@
 		<PackageLicenseFile>LICENCE.md</PackageLicenseFile>
 		<PackageProjectUrl>https://apachetech.co.uk</PackageProjectUrl>
 		<PackageReleaseNotes>
-			ApacheTech.Common.Extensions v2.0.0
+			ApacheTech.Common.Extensions v2.0.1
 
-			- Removed: Functional Programming Extension Methods (Moved to ApacheTech.Common.FunctionalCSharp)
-			- Refactor: Changed method signatures for some reflection extension methods.
-			- Refactor: Changed method signatures for some system extension methods.
-			- Added: Extension methods for strings, objects, assemblies, types, and numbers.
+			- Added: Debug configuration now uses project references, to aid debugging.
+			- Fixed: Minor bug fix; changed RNG to use `ThreadLocal` instead of `ThreadStatic`.
 		</PackageReleaseNotes>
 		<PackageTags>C#</PackageTags>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
