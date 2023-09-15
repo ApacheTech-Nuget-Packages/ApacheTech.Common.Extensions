@@ -1,12 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<Version>2.0.1.0</Version>
+		<Version>2.0.2.0</Version>
 		<PackageReleaseNotes>
-			ApacheTech.Common.Extensions v2.0.1
+			ApacheTech.Common.Extensions v2.0.2
 
-			- Added: Debug configuration now uses project references, to aid debugging.
-			- Fixed: Minor bug fix; changed RNG to use `ThreadLocal` instead of `ThreadStatic`.
+			- Fixed: Allow for nulled actions in `.With(action)`.
 		</PackageReleaseNotes>
 
 		<ApplicationIcon>__Icon.ico</ApplicationIcon>
@@ -29,6 +28,7 @@
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 
 		<LangVersion>latest</LangVersion>
+		<nullable>enable</nullable>
 
 		<PackageIcon>__PreviewImage.png</PackageIcon>
 		<PackageLicenseFile>LICENCE.md</PackageLicenseFile>

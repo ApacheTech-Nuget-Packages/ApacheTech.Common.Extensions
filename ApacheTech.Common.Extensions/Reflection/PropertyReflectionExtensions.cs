@@ -24,7 +24,7 @@ namespace ApacheTech.Common.Extensions.Reflection
         {
             bool hasDefaultValue;
             var tryToGetDefaultValue = true;
-            defaultValue = null;
+            object? value = null;
 
             try
             {
@@ -39,20 +39,22 @@ namespace ApacheTech.Common.Extensions.Reflection
                 tryToGetDefaultValue = false;
             }
 
-            if (!hasDefaultValue) return false;
+            if (!hasDefaultValue) goto Return;
 
             if (tryToGetDefaultValue)
             {
-                defaultValue = parameter.DefaultValue;
+                value = parameter.DefaultValue!;
             }
 
             // Workaround for https://github.com/dotnet/corefx/issues/11797
-            if (defaultValue == null && parameter.ParameterType.IsValueType)
+            if (value is null && parameter.ParameterType.IsValueType)
             {
-                defaultValue = Activator.CreateInstance(parameter.ParameterType);
+                value = Activator.CreateInstance(parameter.ParameterType);
             }
 
-            return true;
+            Return:
+            defaultValue = value!;
+            return value is not null;
         }
 
         /// <summary>
@@ -65,7 +67,7 @@ namespace ApacheTech.Common.Extensions.Reflection
         {
             bool hasDefaultValue;
             var tryToGetDefaultValue = true;
-            defaultValue = default;
+            T? value = default;
 
             try
             {
@@ -80,20 +82,22 @@ namespace ApacheTech.Common.Extensions.Reflection
                 tryToGetDefaultValue = false;
             }
 
-            if (!hasDefaultValue) return false;
+            if (!hasDefaultValue) goto Return;
 
             if (tryToGetDefaultValue)
             {
-                defaultValue = parameter.DefaultValue.To<T>();
+                value = parameter.DefaultValue!.To<T>();
             }
 
             // Workaround for https://github.com/dotnet/corefx/issues/11797
-            if (defaultValue == null && parameter.ParameterType.IsValueType)
+            if (value == null && parameter.ParameterType.IsValueType)
             {
-                defaultValue = Activator.CreateInstance(parameter.ParameterType).To<T>();
+                value = Activator.CreateInstance(parameter.ParameterType).To<T>();
             }
 
-            return true;
+            Return:
+            defaultValue = value!;
+            return value is not null;
         }
 
         #endregion

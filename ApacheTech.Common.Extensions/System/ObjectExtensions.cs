@@ -15,7 +15,7 @@ namespace ApacheTech.Common.Extensions.System
         #region Objects
 
         /// <summary>
-        /// The extended data
+        ///     The extended data
         /// </summary>
         private static readonly ConditionalWeakTable<object, object> ExtendedData = new();
 
@@ -49,9 +49,9 @@ namespace ApacheTech.Common.Extensions.System
         /// <typeparam name="T">The type of object to work with.</typeparam>
         /// <param name="item">The item to work with.</param>
         /// <param name="work">The work to be done.</param>
-        public static T With<T>(this T item, Action<T> work)
+        public static T With<T>(this T item, Action<T>? work)
         {
-            work(item);
+            work?.Invoke(item);
             return item;
         }
 
