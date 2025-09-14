@@ -24,7 +24,6 @@
 		<Description>Common extension methods, for use in ApacheTech projects.</Description>
 
 		<EmbedUntrackedSources>true</EmbedUntrackedSources>
-
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 
 		<LangVersion>latest</LangVersion>
@@ -50,22 +49,13 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Include="$(SolutionDir)README.md">
-			<Pack>True</Pack>
-			<PackagePath></PackagePath>
-		</None>
-		<None Include="$(SolutionDir)LICENCE.md">
-			<Pack>True</Pack>
-			<PackagePath></PackagePath>
-		</None>
-		<None Include="__PreviewImage.png">
-			<Pack>True</Pack>
-			<PackagePath></PackagePath>
-		</None>
+		<None Include="..\..\README.md" Pack="true" PackagePath="" />
+		<None Include="..\..\LICENCE.md" Pack="true" PackagePath="" />
+		<None Include="__PreviewImage.png" Pack="true" PackagePath="" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
