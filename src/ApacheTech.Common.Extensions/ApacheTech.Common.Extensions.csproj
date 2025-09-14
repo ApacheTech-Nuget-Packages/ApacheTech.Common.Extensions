@@ -1,0 +1,74 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<Version>2.1.0.0</Version>
+		<PackageReleaseNotes>
+			ApacheTech.Common.Extensions v2.1.0
+
+			- Build: Updated to .NET 8.0 SDK.
+		</PackageReleaseNotes>
+
+		<ApplicationIcon>__Icon.ico</ApplicationIcon>
+		<AssemblyName>ApacheTech.Common.Extensions</AssemblyName>
+		<AssemblyVersion>$(Version)</AssemblyVersion>
+		<AssemblyFileVersion>$(Version)</AssemblyFileVersion>
+		<Authors>ApacheTech Solutions</Authors>
+
+		<Company>ApacheTech Solutions</Company>
+		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+		<Copyright>Copyright © ApacheTech Solutons, 2023. All Rights Reserved.</Copyright>
+
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>embedded</DebugType>
+		<Deterministic>true</Deterministic>
+		<Description>Common extension methods, for use in ApacheTech projects.</Description>
+
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+		<LangVersion>latest</LangVersion>
+		<nullable>enable</nullable>
+
+		<PackageIcon>__PreviewImage.png</PackageIcon>
+		<PackageLicenseFile>LICENCE.md</PackageLicenseFile>
+		<PackageProjectUrl>https://apachetech.co.uk</PackageProjectUrl>
+		<PackageTags>C#</PackageTags>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/ApacheTechSolutions/ApacheTech.Common.Extensions</RepositoryUrl>
+		<RootNamespace>ApacheTech.Common.Extensions</RootNamespace>
+
+		<TargetFramework>net8.0</TargetFramework>
+		<Title>Common .NET System Extension Methods</Title>
+
+		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="README.md">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+		<None Include="LICENCE.md">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+		<None Include="__PreviewImage.png">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+</Project>
