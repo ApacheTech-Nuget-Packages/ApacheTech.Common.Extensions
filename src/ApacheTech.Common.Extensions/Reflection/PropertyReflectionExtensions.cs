@@ -91,9 +91,11 @@ public static class PropertyReflectionExtensions
         }
 
         // Workaround for https://github.com/dotnet/corefx/issues/11797
-        if (value == null && parameter.ParameterType.IsValueType)
+        if (value is null && parameter.ParameterType.IsValueType)
         {
-            value = Activator.CreateInstance(parameter.ParameterType).To<T>();
+            var obj = Activator.CreateInstance(parameter.ParameterType);
+            if (obj is not null)
+                value = obj.To<T>();
         }
 
         Return:

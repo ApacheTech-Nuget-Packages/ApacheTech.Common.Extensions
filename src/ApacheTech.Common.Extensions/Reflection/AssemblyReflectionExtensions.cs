@@ -26,10 +26,12 @@ public static class AssemblyReflectionExtensions
         var objects = assembly
             .GetTypes()
             .Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(T)))
-            .Select(type => (T)Activator.CreateInstance(type, constructorArgs))
+            .Select(type => Activator.CreateInstance(type, constructorArgs) as T)
+            .Where(instance => instance is not null)
             .ToList();
+
         objects.Sort();
 
-        return objects;
+        return objects!;
     }
 }

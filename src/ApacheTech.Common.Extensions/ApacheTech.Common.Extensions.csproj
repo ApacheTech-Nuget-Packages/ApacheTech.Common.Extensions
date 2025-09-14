@@ -28,7 +28,7 @@
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 
 		<LangVersion>latest</LangVersion>
-		<nullable>enable</nullable>
+		<Nullable>enable</Nullable>
 
 		<PackageIcon>__PreviewImage.png</PackageIcon>
 		<PackageLicenseFile>LICENCE.md</PackageLicenseFile>

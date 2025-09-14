@@ -89,6 +89,7 @@ public static partial class CollectionExtensions
     /// <param name="list">The list of syntax options to add.</param>
     /// <param name="predicate">The data member to search by.</param>
     public static void AddOrUpdateRange<TKey, TValue>(this SortedDictionary<TKey, TValue> dict, IEnumerable<TValue> list, Func<TValue, IEnumerable<TKey>> predicate)
+        where TKey : notnull
     {
         var validRecords = list.SelectMany(predicate, (v, k) => new KeyValuePair<TKey, TValue>(k, v));
         foreach (var record in validRecords)
@@ -105,6 +106,7 @@ public static partial class CollectionExtensions
     /// <param name="list">The list of syntax options to add.</param>
     /// <param name="predicate">The data member to search by.</param>
     public static void AddOrUpdateRange<TKey, TValue>(this SortedDictionary<TKey, TValue> dict, IEnumerable<TValue> list, Func<TValue, TKey> predicate)
+         where TKey : notnull
     {
         foreach (var record in list)
         {
@@ -119,6 +121,7 @@ public static partial class CollectionExtensions
     /// <param name="dict">The dictionary to save the syntax list to.</param>
     /// <param name="record">The key-value pair to add.</param>
     public static void AddOrUpdate<TKey, TValue>(this SortedDictionary<TKey, TValue> dict, KeyValuePair<TKey, TValue> record)
+        where TKey : notnull
     {
         dict.AddOrUpdate(record.Key, record.Value);
     }
@@ -131,6 +134,7 @@ public static partial class CollectionExtensions
     /// <param name="key">The key of the value to add.</param>
     /// <param name="value">The value to add.</param>
     public static void AddOrUpdate<TKey, TValue>(this SortedDictionary<TKey, TValue> dict, TKey key, TValue value)
+        where TKey : notnull
     {
         try
         {
