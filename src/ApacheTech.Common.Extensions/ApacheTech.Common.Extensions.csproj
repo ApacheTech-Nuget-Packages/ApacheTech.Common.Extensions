@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<Version>2.1.0.0</Version>
+		<Version>2.1.1.0</Version>
 		<PackageReleaseNotes>
-			ApacheTech.Common.Extensions v2.1.0
+			ApacheTech.Common.Extensions v2.1.1
 
-			- Build: Updated to .NET 8.0 SDK.
+			- Fixed: Updated README and LICENCE
 		</PackageReleaseNotes>
 
 		<ApplicationIcon>__Icon.ico</ApplicationIcon>
@@ -16,7 +16,7 @@
 
 		<Company>ApacheTech Solutions</Company>
 		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
-		<Copyright>Copyright © ApacheTech Solutons, 2023. All Rights Reserved.</Copyright>
+		<Copyright>Copyright © ApacheTech Solutons, 2025. All Rights Reserved.</Copyright>
 
 		<DebugSymbols>true</DebugSymbols>
 		<DebugType>embedded</DebugType>
@@ -50,11 +50,11 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Include="README.md">
+		<None Include="$(SolutionDir)README.md">
 			<Pack>True</Pack>
 			<PackagePath></PackagePath>
 		</None>
-		<None Include="LICENCE.md">
+		<None Include="$(SolutionDir)LICENCE.md">
 			<Pack>True</Pack>
 			<PackagePath></PackagePath>
 		</None>
