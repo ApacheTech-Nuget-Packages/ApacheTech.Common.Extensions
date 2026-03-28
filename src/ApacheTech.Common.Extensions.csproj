@@ -1,11 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<Version>2.1.1.0</Version>
+		<Version>2.2.0.0</Version>
 		<PackageReleaseNotes>
-			ApacheTech.Common.Extensions v2.1.1
+			ApacheTech.Common.Extensions v2.2.0
 
-			- Fixed: Updated README and LICENCE
+			- Added: `TaskExtensions.RunOnce`
+			- Updated: General code improvements and optimisations.
 		</PackageReleaseNotes>
 
 		<ApplicationIcon>__Icon.ico</ApplicationIcon>
