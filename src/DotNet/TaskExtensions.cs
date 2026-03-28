@@ -92,4 +92,80 @@ public static class TaskExtensions
         var result = await task.ConfigureAwait(continueOnCapturedContext);
         return await continuation(result).ConfigureAwait(false);
     }
+
+    /// <summary>
+    ///     Runs a <see cref="Task"/> synchronously, blocking the calling thread until completion.
+    /// </summary>
+    /// <param name="task">The <see cref="Task"/> to run.</param>
+    /// <param name="exceptionHandler">An optional action to perform if an exception is thrown during the execution of the task.</param>
+    public static void RunOnce(this Task task, Action<Exception>? exceptionHandler = null)
+    {
+        try
+        {
+            task.ConfigureAwait(false).GetAwaiter().GetResult();
+        }
+        catch (AggregateException ex)
+        {
+            if (exceptionHandler is null)
+                throw ex.InnerException ?? ex;
+            exceptionHandler(ex.InnerException ?? ex);
+        }
+    }
+
+    /// <summary>
+    ///     Runs a <see cref="ValueTask"/> synchronously, blocking the calling thread until completion.
+    /// </summary>
+    /// <param name="task">The <see cref="ValueTask"/> to run.</param>
+    /// <param name="exceptionHandler">An optional action to perform if an exception is thrown during the execution of the task.</param>
+    public static void RunOnce(this ValueTask task, Action<Exception>? exceptionHandler = null)
+    {
+        try
+        {
+            task.AsTask().ConfigureAwait(false).GetAwaiter().GetResult();
+        }
+        catch (AggregateException ex)
+        {
+            if (exceptionHandler is null)
+                throw ex.InnerException ?? ex;
+            exceptionHandler(ex.InnerException ?? ex);
+        }
+    }
+
+    /// <summary>
+    ///     Runs a <see cref="Task{TResult}"/> synchronously, blocking the calling thread until completion.
+    /// </summary>
+    /// <param name="task">The <see cref="Task{TResult}"/> to run.</param>
+    /// <param name="exceptionHandler">An optional action to perform if an exception is thrown during the execution of the task.</param>
+    public static void RunOnce<TResult>(this Task<TResult> task, Action<Exception>? exceptionHandler = null)
+    {
+        try
+        {
+            task.ConfigureAwait(false).GetAwaiter().GetResult();
+        }
+        catch (AggregateException ex)
+        {
+            if (exceptionHandler is null)
+                throw ex.InnerException ?? ex;
+            exceptionHandler(ex.InnerException ?? ex);
+        }
+    }
+
+    /// <summary>
+    ///     Runs a <see cref="ValueTask{TResult}"/> synchronously, blocking the calling thread until completion.
+    /// </summary>
+    /// <param name="task">The <see cref="ValueTask{TResult}"/> to run.</param>
+    /// <param name="exceptionHandler">An optional action to perform if an exception is thrown during the execution of the task.</param>
+    public static void RunOnce<TResult>(this ValueTask<TResult> task, Action<Exception>? exceptionHandler = null)
+    {
+        try
+        {
+            task.AsTask().ConfigureAwait(false).GetAwaiter().GetResult();
+        }
+        catch (AggregateException ex)
+        {
+            if (exceptionHandler is null)
+                throw ex.InnerException ?? ex;
+            exceptionHandler(ex.InnerException ?? ex);
+        }
+    }
 }
